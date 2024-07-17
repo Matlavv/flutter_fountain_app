@@ -1,16 +1,28 @@
-# flutter_fountain_app
+# Flutter project to get fountain in Belgium
 
-A new Flutter project.
+## How to install project
 
-## Getting Started
+### Prerequisites
 
-This project is a starting point for a Flutter application.
+1. **Flutter & Dart**:
 
-A few resources to get you started if this is your first Flutter project:
+   - Ensure you have Flutter and Dart installed. Follow the installation guide here: [Flutter Installation](https://flutter.dev/docs/get-started/install).
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Project Setup
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. **Clone the repository**:
+   ```sh
+   git clone git@github.com:Matlavv/flutter_fountain_app.git
+   cd flutter_fountain_app
+   flutter pub get
+   ```
+
+```
+
+```
+
+2. **Run the project**
+
+```sh
+flutter run
+```
