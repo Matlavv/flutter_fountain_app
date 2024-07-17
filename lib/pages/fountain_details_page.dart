@@ -36,7 +36,10 @@ class FountainDetailsPage extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        title: Text(title),
+        title: Text(
+          title,
+          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -44,11 +47,32 @@ class FountainDetailsPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             if (fountain['photo'] != null && fountain['photo']['url'] != null)
-              Image.network(fountain['photo']['url']),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(16.0),
+                child: Image.network(
+                  fountain['photo']['url'],
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) {
+                    return const Icon(Icons.error);
+                  },
+                  loadingBuilder: (context, child, loadingProgress) {
+                    if (loadingProgress == null) return child;
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  },
+                ),
+              ),
+            const SizedBox(height: 16.0),
+            Text(
+              specloc,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+            ),
             const SizedBox(height: 8.0),
-            Text(specloc),
-            const SizedBox(height: 8.0),
-            Text(adrvois),
+            Text(
+              adrvois,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+            ),
           ],
         ),
       ),

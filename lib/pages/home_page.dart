@@ -76,38 +76,54 @@ class _HomePageState extends State<HomePage> {
           children: [
             const Text('Fontaine app'),
             const Spacer(),
-            DropdownButton<String>(
-              value: selectedRegion,
-              items: <String>['All', 'Pentagone', 'Louise', 'Laeken']
-                  .map((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
-              onChanged: (String? newValue) {
-                setState(() {
-                  selectedRegion = newValue!;
-                  filterFountains();
-                });
-              },
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: DropdownButton<String>(
+                value: selectedRegion,
+                items: <String>['All', 'Pentagone', 'Louise', 'Laeken']
+                    .map((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    selectedRegion = newValue!;
+                    filterFountains();
+                  });
+                },
+                underline: const SizedBox(),
+                iconEnabledColor: Colors.black,
+              ),
             ),
             const SizedBox(width: 8),
-            DropdownButton<String>(
-              value: selectedCommune,
-              items: <String>['All', 'Bruxelles', 'Ixelles', 'Anderlecht']
-                  .map((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
-              onChanged: (String? newValue) {
-                setState(() {
-                  selectedCommune = newValue!;
-                  filterFountains();
-                });
-              },
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: DropdownButton<String>(
+                value: selectedCommune,
+                items: <String>['All', 'Bruxelles', 'Ixelles', 'Anderlecht']
+                    .map((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    selectedCommune = newValue!;
+                    filterFountains();
+                  });
+                },
+                underline: const SizedBox(),
+                iconEnabledColor: Colors.black,
+              ),
             ),
             const SizedBox(width: 8),
             Image.asset(

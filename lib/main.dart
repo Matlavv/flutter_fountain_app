@@ -29,6 +29,11 @@ class _MyAppState extends State<MyApp> {
       title: 'Fontaine app',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: const Color(0xFFEDF2F4), // Background color
+        cardColor: const Color(0xFF8D99AE), // Tile color
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFFEDF2F4), // AppBar color
+        ),
       ),
       locale: _locale,
       home: HomePage(
@@ -41,8 +46,8 @@ class _MyAppState extends State<MyApp> {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: const [
-        Locale('fr', ''), // Francais
-        Locale('nl', ''), // Néérlandais
+        Locale('fr', ''), // Français
+        Locale('nl', ''), // Néerlandais
       ],
     );
   }

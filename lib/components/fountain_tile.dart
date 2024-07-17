@@ -45,7 +45,23 @@ class FountainTile extends StatelessWidget {
           ),
         );
       },
-      child: Card(
+      child: Container(
+        margin: const EdgeInsets.all(8.0), // Ajouter un espace autour des tiles
+        decoration: BoxDecoration(
+          color: Theme.of(context)
+              .cardColor, // Utiliser la couleur du thème pour les tiles
+          borderRadius: BorderRadius.circular(16), // Bords arrondis
+          border: Border.all(color: Colors.black, width: 1), // Bordure noire
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey
+                  .withOpacity(0.5), // Ombre pour mettre en valeur les tiles
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: const Offset(0, 3), // décalage de l'ombre
+            ),
+          ],
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -53,18 +69,23 @@ class FountainTile extends StatelessWidget {
               Flexible(
                 flex: 3,
                 fit: FlexFit.tight,
-                child: Image.network(
-                  photoUrl,
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) {
-                    return const Icon(Icons.error);
-                  },
-                  loadingBuilder: (context, child, loadingProgress) {
-                    if (loadingProgress == null) return child;
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  },
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.vertical(
+                      top: Radius.circular(
+                          16)), // Bords arrondis en haut de l'image
+                  child: Image.network(
+                    photoUrl,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return const Icon(Icons.error);
+                    },
+                    loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress == null) return child;
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    },
+                  ),
                 ),
               )
             else
@@ -83,6 +104,7 @@ class FountainTile extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
+                      color: Colors.white, // Couleur du texte
                     ),
                     textAlign: TextAlign.center,
                     overflow: TextOverflow.ellipsis,
