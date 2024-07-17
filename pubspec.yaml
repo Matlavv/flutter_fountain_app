@@ -23,4 +23,5 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/lang/
+    - assets/images/fr_flag.png
+    - assets/images/nl_flag.png

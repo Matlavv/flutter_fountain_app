@@ -34,6 +34,7 @@ class _MyAppState extends State<MyApp> {
       home: HomePage(
         onLocaleChange: setLocale,
       ),
+      debugShowCheckedModeBanner: false,
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
